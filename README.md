@@ -27,4 +27,4 @@ This project is the capstone of Udacity Full Stack Web Developer Nanodegree proj
 ## Steps
 
 - Create virtual environment: python3 -m venv env
-- Create framework of basic test cases
+- Create starter code, especially framework of basic test cases
