@@ -26,8 +26,7 @@ class CastingAgencyTestCase(unittest.TestCase):
             self.db.create_all()
 
         self.new_movie = {
-            'title': 'TestMovie',
-            'releaseDate': datetime.now()
+            'title': 'TestMovie'
         }
 
         self.new_actor = {
@@ -38,6 +37,10 @@ class CastingAgencyTestCase(unittest.TestCase):
 
     def tearDown(self):
         """Executed after reach test"""
+        # test_movie = Movie.query.filter_by(title="TestMovie").first()
+        # test_movie.delete()
+        # test_actor = Actor.query.filter_by(name="TestActor").first()
+        # test_actor.delete()
 
     def test_post_new_movie_success(self):
         res = self.client().post('/movies', json=self.new_movie)
