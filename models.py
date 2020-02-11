@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, Date
+from sqlalchemy import Column, String, Integer, DateTime
 from flask_sqlalchemy import SQLAlchemy
 
 dbname = "casting_agency_test"
@@ -22,7 +22,7 @@ class Movie(db.Model):
 
     id = Column(Integer, primary_key=True)
     title = Column(String)
-    release_date = Column(Date)
+    release_date = Column(DateTime)
 
     def __init__(self, title, release_date):
         self.title = title
