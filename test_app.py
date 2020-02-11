@@ -1,10 +1,11 @@
 import os
 import unittest
 import json
-from flask_sqlalchemy import SQLAlchemy
 
+from flask_sqlalchemy import SQLAlchemy
 from app import create_app
 from models import *
+from datetime import datetime
 
 
 class CastingAgencyTestCase(unittest.TestCase):
@@ -25,19 +26,18 @@ class CastingAgencyTestCase(unittest.TestCase):
             self.db.create_all()
 
         self.new_movie = {
-            'title': 'Interstellar',
-            'releaseDate': '2014-11-07' # Should cast to Date Type
+            'title': 'TestMovie',
+            'releaseDate': datetime.now()
         }
 
         self.new_actor = {
-            'name': 'Lucy',
+            'name': 'TestActor',
             'age': '31',
             'gender': 'Female'
         }
 
     def tearDown(self):
         """Executed after reach test"""
-        pass
 
     def test_post_new_movie_success(self):
         res = self.client().post('/movies', json=self.new_movie)
