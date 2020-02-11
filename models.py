@@ -24,6 +24,10 @@ class Movie(db.Model):
     title = Column(String)
     release_date = Column(Date)
 
+    def __init__(self, title, release_date):
+        self.title = title
+        self.release_date = release_date
+
 
 class Actor:
     pass
