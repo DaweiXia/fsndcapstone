@@ -1,3 +1,4 @@
+from sqlalchemy import Column, String, Integer, Date
 from flask_sqlalchemy import SQLAlchemy
 
 dbname = "casting_agency_test"
@@ -16,8 +17,12 @@ def setup_db(app, database_path=database_path):
     db.create_all()
 
 
-class Movie:
-    pass
+class Movie(db.Model):
+    __tablename__ = 'movies'
+
+    id = Column(Integer, primary_key=True)
+    title = Column(String)
+    release_date = Column(Date)
 
 
 class Actor:
