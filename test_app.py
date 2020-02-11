@@ -4,7 +4,7 @@ import json
 from flask_sqlalchemy import SQLAlchemy
 
 from app import create_app
-from models import setup_db, Movie, Actor
+from models import *
 
 
 class CastingAgencyTestCase(unittest.TestCase):
@@ -14,10 +14,8 @@ class CastingAgencyTestCase(unittest.TestCase):
         """Define test variables and initialize app."""
         self.app = create_app()
         self.client = self.app.test_client
-        self.database_name = "casting_agency_test"
-        # self.database_path = "postgres://{}/{}".format('localhost:5432', self.database_name)
-        self.database_path = "postgresql://postgres:123456@localhost:5432/"+self.database_name
-        setup_db(self.app, self.database_path)
+        self.dbpath = "postgresql://{}:{}@{}/{}".format(uname, upwd, host, dbname)
+        setup_db(self.app, self.dbpath)
 
         # binds the app to the current context
         with self.app.app_context():
