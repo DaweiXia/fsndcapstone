@@ -39,6 +39,26 @@ class CastingAgencyTestCase(unittest.TestCase):
         """Executed after reach test"""
         pass
 
+    def test_post_new_movie_success(self):
+        res = self.client().post('/movies', json=self.new_movie)
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertTrue(data['success'])
+
+    def test_post_new_actor_success(self):
+        res = self.client().post('/actors', json=self.new_actor)
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertTrue(data['success'])
+
+    def test_post_new_movie_fail(self):
+        assert False
+
+    def test_post_new_actor_fail(self):
+        assert False
+
     def test_get_movies_success(self):
         res = self.client().get('/movies')
         data = json.loads(res.data)
@@ -92,26 +112,6 @@ class CastingAgencyTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 422)
         self.assertFalse(data['success'])
         self.assertEqual(data['message'], 'Unprocessable')
-
-    def test_post_new_movie_success(self):
-        res = self.client().post('/movies', json=self.new_movie)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code, 200)
-        self.assertTrue(data['success'])
-
-    def test_post_new_actor_success(self):
-        res = self.client().post('/actors', json=self.new_actor)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code, 200)
-        self.assertTrue(data['success'])
-
-    def test_post_new_movie_fail(self):
-        assert False
-
-    def test_post_new_actor_fail(self):
-        assert False
 
     def test_patch_movie_success(self):
         assert False
