@@ -28,6 +28,10 @@ class Movie(db.Model):
         self.title = title
         self.release_date = release_date
 
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
 
 class Actor:
     pass
