@@ -50,6 +50,22 @@ def create_app(test_config=None):
         else:
             abort(404)
 
+    @app.route('/movies/<int:movie_id>', methods=['PATCH'])
+    def patch_movies(movie_id):
+        data = request.json
+        movie = Movie.query.filter(Movie.id == movie_id).one_or_none()
+        if movie:
+            if movie.title != data['title']:
+                movie.title = data['title']
+            try:
+                movie.update()
+                return jsonify({'success': True})
+            except Exception:
+                db.session.rollback()
+                abort(422)
+        else:
+            abort(404)
+
     @app.route('/actors', methods=['POST'])
     def post_actors():
         data = request.json
