@@ -22,6 +22,19 @@ def create_app(test_config=None):
             db.session.rollback()
             abort(422)
 
+    @app.route('/movies', methods=['GET'])
+    def get_movies():
+        movies = Movie.query.all()
+        formated_movies = [movie.format() for movie in movies]
+
+        if len(movies) == 0:
+            abort(404)
+
+        return jsonify({
+            'success': True,
+            'movies': formated_movies
+        })
+
     @app.route('/actors', methods=['POST'])
     def post_actors():
         data = request.json
