@@ -1,6 +1,6 @@
 from flask import Flask, request, abort, jsonify
 from flask_migrate import Migrate
-from models import db, setup_db, Movie
+from models import db, setup_db, Movie, Actor
 
 from datetime import datetime
 
@@ -17,6 +17,17 @@ def create_app(test_config=None):
         try:
             movie = Movie(title=data['title'], release_date=release_date)
             movie.insert()
+            return jsonify({'success': True})
+        except Exception:
+            db.session.rollback()
+            abort(422)
+
+    @app.route('/actors', methods=['POST'])
+    def post_actors():
+        data = request.json
+        try:
+            actor = Actor(name=data['name'], age=data['age'], gender=data['gender'])
+            actor.insert()
             return jsonify({'success': True})
         except Exception:
             db.session.rollback()
