@@ -46,4 +46,17 @@ def create_app(test_config=None):
             db.session.rollback()
             abort(422)
 
+    @app.route('/actors', methods=['GET'])
+    def get_actors():
+        actors = Actor.query.all()
+        formated_actors = [actor.format() for actor in actors]
+
+        if len(actors) == 0:
+            abort(404)
+
+        return jsonify({
+            'success': True,
+            'actors': formated_actors
+        })
+
     return app
