@@ -28,4 +28,4 @@ This project is the capstone of Udacity Full Stack Web Developer Nanodegree proj
 
 - Create virtual environment: python3 -m venv env
 - Create starter code, especially framework of basic test cases
-- Finish post movie
+- Finish post movies, actors; get movies, actors; delete movies, actors; patch movies, actors endpoints
