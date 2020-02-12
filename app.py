@@ -74,4 +74,19 @@ def create_app(test_config=None):
             'actors': formated_actors
         })
 
+    @app.route('/actors/<int:actor_id>', methods=['DELETE'])
+    def del_actors(actor_id):
+        actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
+        if actor:
+            try:
+                actor.delete()
+                return jsonify({
+                    'success': True
+                })
+            except Exception:
+                db.session.rollback()
+                abort(422)
+        else:
+            abort(404)
+
     return app
