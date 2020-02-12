@@ -35,6 +35,21 @@ def create_app(test_config=None):
             'movies': formated_movies
         })
 
+    @app.route('/movies/<int:movie_id>', methods=['DELETE'])
+    def del_movies(movie_id):
+        movie = Movie.query.filter(Movie.id == movie_id).one_or_none()
+        if movie:
+            try:
+                movie.delete()
+                return jsonify({
+                    'success': True
+                })
+            except Exception:
+                db.session.rollback()
+                abort(422)
+        else:
+            abort(404)
+
     @app.route('/actors', methods=['POST'])
     def post_actors():
         data = request.json
