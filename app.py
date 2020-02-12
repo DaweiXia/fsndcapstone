@@ -105,4 +105,24 @@ def create_app(test_config=None):
         else:
             abort(404)
 
+    @app.route('/actors/<int:actor_id>', methods=['PATCH'])
+    def patch_actors(actor_id):
+        data = request.json
+        actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
+        if actor:
+            if actor.name != data['name']:
+                actor.name = data['name']
+            if actor.age != data['age']:
+                actor.age = data['age']
+            if actor.gender != data['gender']:
+                actor.gender = data['gender']
+            try:
+                actor.update()
+                return jsonify({'success': True})
+            except Exception:
+                db.session.rollback()
+                abort(422)
+        else:
+            abort(404)
+
     return app
