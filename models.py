@@ -35,7 +35,7 @@ class Movie(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
-    
+
     def format(self):
         return {
             'id': self.id,
@@ -60,3 +60,11 @@ class Actor(db.Model):
     def insert(self):
         db.session.add(self)
         db.session.commit()
+
+    def format(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'age': self.age,
+            'gender': self.gender
+        }
