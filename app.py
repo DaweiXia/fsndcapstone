@@ -48,7 +48,7 @@ def create_app(test_config=None):
                 db.session.rollback()
                 abort(422)
         else:
-            abort(404)
+            abort(422)
 
     @app.route('/movies/<int:movie_id>', methods=['PATCH'])
     def patch_movies(movie_id):
@@ -64,7 +64,7 @@ def create_app(test_config=None):
                 db.session.rollback()
                 abort(422)
         else:
-            abort(404)
+            abort(422)
 
     @app.route('/actors', methods=['POST'])
     def post_actors():
@@ -103,7 +103,7 @@ def create_app(test_config=None):
                 db.session.rollback()
                 abort(422)
         else:
-            abort(404)
+            abort(422)
 
     @app.route('/actors/<int:actor_id>', methods=['PATCH'])
     def patch_actors(actor_id):
@@ -123,7 +123,7 @@ def create_app(test_config=None):
                 db.session.rollback()
                 abort(422)
         else:
-            abort(404)
+            abort(422)
 
     # Error Handling
     @app.errorhandler(422)
