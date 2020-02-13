@@ -1,3 +1,6 @@
+# This file has been abandoned after add auth code,
+#  because all endpoints need RBAC
+
 import os
 import unittest
 import json
@@ -57,10 +60,18 @@ class CastingAgencyTestCase(unittest.TestCase):
         self.assertTrue(data['success'])
 
     def test_post_new_movie_fail(self):
-        assert False
+        res = self.client().post('/movies', json={})
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 422)
+        self.assertFalse(data['success'])
 
     def test_post_new_actor_fail(self):
-        assert False
+        res = self.client().post('/actors', json={})
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 422)
+        self.assertFalse(data['success'])
 
     def test_get_movies_success(self):
         res = self.client().get('/movies')
@@ -68,9 +79,6 @@ class CastingAgencyTestCase(unittest.TestCase):
 
         self.assertTrue(data['success'])
         self.assertTrue(len(data['movies']))
-
-    def test_get_movies_fail(self):
-        assert False
 
     def test_get_actors_success(self):
         res = self.client().get('/actors')
@@ -81,20 +89,20 @@ class CastingAgencyTestCase(unittest.TestCase):
         self.assertTrue(data['actors'])
 
     def test_delete_movie_success(self):
-        res = self.client().delete('/movies/2')
+        res = self.client().delete('/movies/1')
         data = json.loads(res.data)
 
-        movie = Movie.query.filter(Movie.id == 2).one_or_none()
+        movie = Movie.query.filter(Movie.id == 1).one_or_none()
 
         self.assertEqual(res.status_code, 200)
         self.assertTrue(data['success'])
         self.assertEqual(movie, None)
 
-    def test_delet_actor_success(self):
-        res = self.client().delete('/actors/2')
+    def test_delete_actor_success(self):
+        res = self.client().delete('/actors/1')
         data = json.loads(res.data)
 
-        actor = Actor.query.filter(Actor.id == 2).one_or_none()
+        actor = Actor.query.filter(Actor.id == 1).one_or_none()
 
         self.assertEqual(res.status_code, 200)
         self.assertTrue(data['success'])
@@ -117,22 +125,32 @@ class CastingAgencyTestCase(unittest.TestCase):
         self.assertEqual(data['message'], 'Unprocessable')
 
     def test_patch_movie_success(self):
-        assert False
+        res = self.client().patch('/movies/2', json=self.new_movie)
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertTrue(data['success'])
 
     def test_patch_movie_fail(self):
-        assert False
+        res = self.client().patch('/movies/50', json=self.new_movie)
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 422)
+        self.assertFalse(data['success'])
 
     def tets_patch_actor_success(self):
-        assert False
+        res = self.client().patch('/actors/2', json=self.new_actor)
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertTrue(data['success'])
 
     def test_patch_actor_fail(self):
-        assert False
+        res = self.client().patch('/actors/50', json=self.new_actor)
+        data = json.loads(res.data)
 
-    def test_casting_assistant_get_actors(self):
-        assert False
-
-    def test_casting_director_delete_movie(self):
-        assert False
+        self.assertEqual(res.status_code, 422)
+        self.assertFalse(data['success'])
 
 
 # Make the tests conveniently executable
