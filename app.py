@@ -1,8 +1,8 @@
 from flask import Flask, request, abort, jsonify
 from flask_migrate import Migrate
 from models import db, setup_db, Movie, Actor
-
 from datetime import datetime
+from auth import AuthError, requires_auth
 
 
 def create_app(test_config=None):
@@ -11,7 +11,8 @@ def create_app(test_config=None):
     migrate = Migrate(app, db)
 
     @app.route('/movies', methods=['POST'])
-    def post_movies():
+    @requires_auth('post:movies')
+    def post_movies(payload):
         data = request.json
         release_date = datetime.now()
         try:
@@ -23,7 +24,8 @@ def create_app(test_config=None):
             abort(422)
 
     @app.route('/movies', methods=['GET'])
-    def get_movies():
+    @requires_auth('get:movies')
+    def get_movies(payload):
         movies = Movie.query.all()
         formated_movies = [movie.format() for movie in movies]
 
@@ -36,7 +38,8 @@ def create_app(test_config=None):
         })
 
     @app.route('/movies/<int:movie_id>', methods=['DELETE'])
-    def del_movies(movie_id):
+    @requires_auth('delete:movies')
+    def del_movies(payload, movie_id):
         movie = Movie.query.filter(Movie.id == movie_id).one_or_none()
         if movie:
             try:
@@ -51,7 +54,8 @@ def create_app(test_config=None):
             abort(422)
 
     @app.route('/movies/<int:movie_id>', methods=['PATCH'])
-    def patch_movies(movie_id):
+    @requires_auth('patch:movies')
+    def patch_movies(payload, movie_id):
         data = request.json
         movie = Movie.query.filter(Movie.id == movie_id).one_or_none()
         if movie:
@@ -67,7 +71,8 @@ def create_app(test_config=None):
             abort(422)
 
     @app.route('/actors', methods=['POST'])
-    def post_actors():
+    @requires_auth('post:actors')
+    def post_actors(payload):
         data = request.json
         try:
             actor = Actor(name=data['name'], age=data['age'], gender=data['gender'])
@@ -78,7 +83,8 @@ def create_app(test_config=None):
             abort(422)
 
     @app.route('/actors', methods=['GET'])
-    def get_actors():
+    @requires_auth('get:actors')
+    def get_actors(payload):
         actors = Actor.query.all()
         formated_actors = [actor.format() for actor in actors]
 
@@ -91,7 +97,8 @@ def create_app(test_config=None):
         })
 
     @app.route('/actors/<int:actor_id>', methods=['DELETE'])
-    def del_actors(actor_id):
+    @requires_auth('delete:actors')
+    def del_actors(payload, actor_id):
         actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
         if actor:
             try:
@@ -106,7 +113,8 @@ def create_app(test_config=None):
             abort(422)
 
     @app.route('/actors/<int:actor_id>', methods=['PATCH'])
-    def patch_actors(actor_id):
+    @requires_auth('patch:actors')
+    def patch_actors(payload, actor_id):
         data = request.json
         actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
         if actor:
