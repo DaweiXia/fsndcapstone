@@ -15,9 +15,9 @@ This project is the capstone of Udacity Full Stack Web Developer Nanodegree proj
   - PATCH /actors/ and /movies/
 
 - Roles
-  -Casting Assistant: Can view actors and movies
+  - Casting Assistant: Can view actors and movies
   - Casting Director: All permissions a Casting Assistant has and add or delete an actor from the database, modify actors or movies
-- Executive Producer: All permissions a Casting Director has and add or delete a movie from the database
+  - Executive Producer: All permissions a Casting Director has and add or delete a movie from the database
 
 - Tests
   - One test for success behavior of each endpoint
@@ -29,3 +29,5 @@ This project is the capstone of Udacity Full Stack Web Developer Nanodegree proj
 - Create virtual environment: python3 -m venv env
 - Create starter code, especially framework of basic test cases
 - Finish post movies, actors; get movies, actors; delete movies, actors; patch movies, actors endpoints
+- Create account on Auth0, create application, APIs, roles and add corresponding permissions
+- Add authentication code and use postman to test RBAC for each role
