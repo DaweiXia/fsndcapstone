@@ -125,4 +125,37 @@ def create_app(test_config=None):
         else:
             abort(404)
 
+    # Error Handling
+    @app.errorhandler(422)
+    def unprocessable(error):
+        return jsonify({
+                        "success": False, 
+                        "error": 422,
+                        "message": "unprocessable"
+                        }), 422
+
+    @app.errorhandler(404)
+    def not_found(error):
+        return jsonify({
+                        "success": False,
+                        "error": 404,
+                        "message": "resource not found"
+                        }), 404
+
+    @app.errorhandler(401)
+    def invalid_header(error):
+        return jsonify({
+                        "success": False,
+                        "error": 401,
+                        "message": "Invalid header!"
+                        }), 401
+
+    @app.errorhandler(405)
+    def permission_error(error):
+        return jsonify({
+                        "success": False,
+                        "error": 405,
+                        "message": "Permission not found!"
+                        }), 405
+
     return app
