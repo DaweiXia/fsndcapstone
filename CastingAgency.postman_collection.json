@@ -855,7 +855,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\": \"Minority Report\"\n}",
+							"raw": "{\n\t\"title\": \"Minority Report\",\n\t\"release_date\": {\n\t\t\"year\": 2002,\n\t\t\"month\": 6,\n\t\t\"day\": 21\n\t}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
