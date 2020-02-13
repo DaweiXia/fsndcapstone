@@ -14,7 +14,8 @@ def create_app(test_config=None):
     @requires_auth('post:movies')
     def post_movies(payload):
         data = request.json
-        release_date = datetime.now()
+        date = data['release_date']
+        release_date = datetime(date['year'], date['month'], date['day'])
         try:
             movie = Movie(title=data['title'], release_date=release_date)
             movie.insert()
