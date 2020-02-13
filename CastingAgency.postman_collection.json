@@ -1,0 +1,1010 @@
+{
+	"info": {
+		"_postman_id": "e3e3b6f2-bd39-4366-80d7-d21abdad98cd",
+		"name": "CastingAgency",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CastingAssistant",
+			"item": [
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "da5f8b08-2633-401a-bac5-3d7d081495ea",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains actors array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.actors).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmZiZGJhMTZmYjBlNjhlOGYyZTgiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk1MDAzLCJleHAiOjE1ODE2NjcwMDMsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyJdfQ.TAt5Ct8XBGnZzY-ZDKVuAPv4uIrfaTcqhzMykxDxhRi8WA7u76bT5aSJC1JwPEI1RBdZKIFo4ef6aNfo1wLpv0WAZXQhhUV5UXet971GyTGGv64Hwv6rbUjqAmmQnrxVsZxT2z4-GoUDorVHdR0pldg53LxqFyZrBHMrxQ-FVuT8dTORJzTg0WkKMZhz2GPMCyvxme0PtN3Z_9CotVEPhTKHzx4lxCBv5WR9_QwfXHyezFg_3BEAakXJNeXXTSvMnEYTWOUW2mIe9DsXKU1VDlosIiu5aGHMrTsdEcu9OtN9GZyHAyxpE_j-3ICGsi7Mi6_XGCdDw3jDuh-l-9SUdg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:5000/actors",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "73bcf685-cab4-4fc1-a5f8-6bdfedd89d65",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains movies array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.movies).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmZiZGJhMTZmYjBlNjhlOGYyZTgiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk1MDAzLCJleHAiOjE1ODE2NjcwMDMsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyJdfQ.TAt5Ct8XBGnZzY-ZDKVuAPv4uIrfaTcqhzMykxDxhRi8WA7u76bT5aSJC1JwPEI1RBdZKIFo4ef6aNfo1wLpv0WAZXQhhUV5UXet971GyTGGv64Hwv6rbUjqAmmQnrxVsZxT2z4-GoUDorVHdR0pldg53LxqFyZrBHMrxQ-FVuT8dTORJzTg0WkKMZhz2GPMCyvxme0PtN3Z_9CotVEPhTKHzx4lxCBv5WR9_QwfXHyezFg_3BEAakXJNeXXTSvMnEYTWOUW2mIe9DsXKU1VDlosIiu5aGHMrTsdEcu9OtN9GZyHAyxpE_j-3ICGsi7Mi6_XGCdDw3jDuh-l-9SUdg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:5000/movies",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "CastingDirector",
+			"item": [
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "73bcf685-cab4-4fc1-a5f8-6bdfedd89d65",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains movies array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.movies).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmY4NTkyN2VlMzBlNmZlNTVlNDkiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2MDc2LCJleHAiOjE1ODE2NjgwNzYsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyJdfQ.cb1pAkC05gJrKeElwUXq3D22PWPrH4b09uA-EQgu2IUV4_lyr6rNcZ7_3xXdySL6Rlzutn5SU0QBSDCp4LJtbQZZZkd6O62dkTFeISoGzFurM_XnNnDQQVuqdLZoXryqNcmspwF6amOEb1iEnMd-8gT1vII1Y062RBY2hfWub7pjJHkseQd7qaUIbdYUEFAZ_tzLEdf_Vo-_H2GRp2dR7gqdwjW2nsuOkwONgZBJ3dlPEgO_4cRFuxTp5USA_Gfo-8wpSkLfBOzzQSBuTiIDh_i0LRHdoPqUPrPmMB-Sj9rmosdCV1mU7Av7Fd2deevFTIRTq2FFLIYxh_xDyzDjrA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:5000/movies",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "da5f8b08-2633-401a-bac5-3d7d081495ea",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains actors array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.actors).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmY4NTkyN2VlMzBlNmZlNTVlNDkiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2MDc2LCJleHAiOjE1ODE2NjgwNzYsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyJdfQ.cb1pAkC05gJrKeElwUXq3D22PWPrH4b09uA-EQgu2IUV4_lyr6rNcZ7_3xXdySL6Rlzutn5SU0QBSDCp4LJtbQZZZkd6O62dkTFeISoGzFurM_XnNnDQQVuqdLZoXryqNcmspwF6amOEb1iEnMd-8gT1vII1Y062RBY2hfWub7pjJHkseQd7qaUIbdYUEFAZ_tzLEdf_Vo-_H2GRp2dR7gqdwjW2nsuOkwONgZBJ3dlPEgO_4cRFuxTp5USA_Gfo-8wpSkLfBOzzQSBuTiIDh_i0LRHdoPqUPrPmMB-Sj9rmosdCV1mU7Av7Fd2deevFTIRTq2FFLIYxh_xDyzDjrA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:5000/actors",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/50",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b755d271-1851-43ea-929c-bde84bd30338",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmY4NTkyN2VlMzBlNmZlNTVlNDkiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2MDc2LCJleHAiOjE1ODE2NjgwNzYsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyJdfQ.cb1pAkC05gJrKeElwUXq3D22PWPrH4b09uA-EQgu2IUV4_lyr6rNcZ7_3xXdySL6Rlzutn5SU0QBSDCp4LJtbQZZZkd6O62dkTFeISoGzFurM_XnNnDQQVuqdLZoXryqNcmspwF6amOEb1iEnMd-8gT1vII1Y062RBY2hfWub7pjJHkseQd7qaUIbdYUEFAZ_tzLEdf_Vo-_H2GRp2dR7gqdwjW2nsuOkwONgZBJ3dlPEgO_4cRFuxTp5USA_Gfo-8wpSkLfBOzzQSBuTiIDh_i0LRHdoPqUPrPmMB-Sj9rmosdCV1mU7Av7Fd2deevFTIRTq2FFLIYxh_xDyzDjrA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:5000/actors/50",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"actors",
+								"50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/50",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b80d6127-de2b-4176-9836-d25d3c3cd2b9",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmY4NTkyN2VlMzBlNmZlNTVlNDkiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2MDc2LCJleHAiOjE1ODE2NjgwNzYsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyJdfQ.cb1pAkC05gJrKeElwUXq3D22PWPrH4b09uA-EQgu2IUV4_lyr6rNcZ7_3xXdySL6Rlzutn5SU0QBSDCp4LJtbQZZZkd6O62dkTFeISoGzFurM_XnNnDQQVuqdLZoXryqNcmspwF6amOEb1iEnMd-8gT1vII1Y062RBY2hfWub7pjJHkseQd7qaUIbdYUEFAZ_tzLEdf_Vo-_H2GRp2dR7gqdwjW2nsuOkwONgZBJ3dlPEgO_4cRFuxTp5USA_Gfo-8wpSkLfBOzzQSBuTiIDh_i0LRHdoPqUPrPmMB-Sj9rmosdCV1mU7Av7Fd2deevFTIRTq2FFLIYxh_xDyzDjrA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/50",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/50",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7f30eb79-ad95-4e68-985c-63634c1ac683",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmY4NTkyN2VlMzBlNmZlNTVlNDkiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2MDc2LCJleHAiOjE1ODE2NjgwNzYsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyJdfQ.cb1pAkC05gJrKeElwUXq3D22PWPrH4b09uA-EQgu2IUV4_lyr6rNcZ7_3xXdySL6Rlzutn5SU0QBSDCp4LJtbQZZZkd6O62dkTFeISoGzFurM_XnNnDQQVuqdLZoXryqNcmspwF6amOEb1iEnMd-8gT1vII1Y062RBY2hfWub7pjJHkseQd7qaUIbdYUEFAZ_tzLEdf_Vo-_H2GRp2dR7gqdwjW2nsuOkwONgZBJ3dlPEgO_4cRFuxTp5USA_Gfo-8wpSkLfBOzzQSBuTiIDh_i0LRHdoPqUPrPmMB-Sj9rmosdCV1mU7Av7Fd2deevFTIRTq2FFLIYxh_xDyzDjrA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/50",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"50"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ExecutiveProducer",
+			"item": [
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aa3b4e42-e4ac-4236-8a65-a262f7726a9d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains movies array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.movies).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmYyNGVkNDZjNDBlN2Y5MTI3ZGUiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2NDIyLCJleHAiOjE1ODE2Njg0MjIsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.BqNb8_UuaYuLArI2FQcY7kbJpUBb48jIs9acIPfcPxUi6YD71a1vM56C4WdRGd62ZtXr-lqcidp6j2a1NaTtz5fV76njIkZ6bvfM_XaxVkZbWip1l1x7lJBQEk8xJeJNbzW4fNLdmiFuOa6jzb_hNExcOoc2dEBaFolQLvdiaB5K227vJwZFWWCtQPm1S5Nb0t553BNqY0lJwDD-Y-K0KVceT96Kg7gTuvfr9bjiHK1RHKHEHvUPpnUX-CYbBaxHYk_9tNq0V1r4JL6N6q2W1FgZE8bvz8Hf9bY4eFdIHlvfDDA8osudziJN8gXClfN7aFB9DZwlpiCsy3pGrSJ_Ww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:5000/movies",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "da5f8b08-2633-401a-bac5-3d7d081495ea",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains actors array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.actors).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmYyNGVkNDZjNDBlN2Y5MTI3ZGUiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2NDIyLCJleHAiOjE1ODE2Njg0MjIsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.BqNb8_UuaYuLArI2FQcY7kbJpUBb48jIs9acIPfcPxUi6YD71a1vM56C4WdRGd62ZtXr-lqcidp6j2a1NaTtz5fV76njIkZ6bvfM_XaxVkZbWip1l1x7lJBQEk8xJeJNbzW4fNLdmiFuOa6jzb_hNExcOoc2dEBaFolQLvdiaB5K227vJwZFWWCtQPm1S5Nb0t553BNqY0lJwDD-Y-K0KVceT96Kg7gTuvfr9bjiHK1RHKHEHvUPpnUX-CYbBaxHYk_9tNq0V1r4JL6N6q2W1FgZE8bvz8Hf9bY4eFdIHlvfDDA8osudziJN8gXClfN7aFB9DZwlpiCsy3pGrSJ_Ww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:5000/actors",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/50",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f3ec4681-ce6d-4758-ac04-a3fbcda976e5",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmYyNGVkNDZjNDBlN2Y5MTI3ZGUiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2NDIyLCJleHAiOjE1ODE2Njg0MjIsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.BqNb8_UuaYuLArI2FQcY7kbJpUBb48jIs9acIPfcPxUi6YD71a1vM56C4WdRGd62ZtXr-lqcidp6j2a1NaTtz5fV76njIkZ6bvfM_XaxVkZbWip1l1x7lJBQEk8xJeJNbzW4fNLdmiFuOa6jzb_hNExcOoc2dEBaFolQLvdiaB5K227vJwZFWWCtQPm1S5Nb0t553BNqY0lJwDD-Y-K0KVceT96Kg7gTuvfr9bjiHK1RHKHEHvUPpnUX-CYbBaxHYk_9tNq0V1r4JL6N6q2W1FgZE8bvz8Hf9bY4eFdIHlvfDDA8osudziJN8gXClfN7aFB9DZwlpiCsy3pGrSJ_Ww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:5000/movies/50",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies",
+								"50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f3ec4681-ce6d-4758-ac04-a3fbcda976e5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmYyNGVkNDZjNDBlN2Y5MTI3ZGUiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2NDIyLCJleHAiOjE1ODE2Njg0MjIsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.BqNb8_UuaYuLArI2FQcY7kbJpUBb48jIs9acIPfcPxUi6YD71a1vM56C4WdRGd62ZtXr-lqcidp6j2a1NaTtz5fV76njIkZ6bvfM_XaxVkZbWip1l1x7lJBQEk8xJeJNbzW4fNLdmiFuOa6jzb_hNExcOoc2dEBaFolQLvdiaB5K227vJwZFWWCtQPm1S5Nb0t553BNqY0lJwDD-Y-K0KVceT96Kg7gTuvfr9bjiHK1RHKHEHvUPpnUX-CYbBaxHYk_9tNq0V1r4JL6N6q2W1FgZE8bvz8Hf9bY4eFdIHlvfDDA8osudziJN8gXClfN7aFB9DZwlpiCsy3pGrSJ_Ww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:5000/movies/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f3ec4681-ce6d-4758-ac04-a3fbcda976e5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmYyNGVkNDZjNDBlN2Y5MTI3ZGUiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2NDIyLCJleHAiOjE1ODE2Njg0MjIsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.BqNb8_UuaYuLArI2FQcY7kbJpUBb48jIs9acIPfcPxUi6YD71a1vM56C4WdRGd62ZtXr-lqcidp6j2a1NaTtz5fV76njIkZ6bvfM_XaxVkZbWip1l1x7lJBQEk8xJeJNbzW4fNLdmiFuOa6jzb_hNExcOoc2dEBaFolQLvdiaB5K227vJwZFWWCtQPm1S5Nb0t553BNqY0lJwDD-Y-K0KVceT96Kg7gTuvfr9bjiHK1RHKHEHvUPpnUX-CYbBaxHYk_9tNq0V1r4JL6N6q2W1FgZE8bvz8Hf9bY4eFdIHlvfDDA8osudziJN8gXClfN7aFB9DZwlpiCsy3pGrSJ_Ww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:5000/movies/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/50",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f3ec4681-ce6d-4758-ac04-a3fbcda976e5",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmYyNGVkNDZjNDBlN2Y5MTI3ZGUiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2NDIyLCJleHAiOjE1ODE2Njg0MjIsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.BqNb8_UuaYuLArI2FQcY7kbJpUBb48jIs9acIPfcPxUi6YD71a1vM56C4WdRGd62ZtXr-lqcidp6j2a1NaTtz5fV76njIkZ6bvfM_XaxVkZbWip1l1x7lJBQEk8xJeJNbzW4fNLdmiFuOa6jzb_hNExcOoc2dEBaFolQLvdiaB5K227vJwZFWWCtQPm1S5Nb0t553BNqY0lJwDD-Y-K0KVceT96Kg7gTuvfr9bjiHK1RHKHEHvUPpnUX-CYbBaxHYk_9tNq0V1r4JL6N6q2W1FgZE8bvz8Hf9bY4eFdIHlvfDDA8osudziJN8gXClfN7aFB9DZwlpiCsy3pGrSJ_Ww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:5000/actors/50",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"actors",
+								"50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e6ff3b18-bb97-4dba-8d49-25a7f8486902",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmYyNGVkNDZjNDBlN2Y5MTI3ZGUiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2NDIyLCJleHAiOjE1ODE2Njg0MjIsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.BqNb8_UuaYuLArI2FQcY7kbJpUBb48jIs9acIPfcPxUi6YD71a1vM56C4WdRGd62ZtXr-lqcidp6j2a1NaTtz5fV76njIkZ6bvfM_XaxVkZbWip1l1x7lJBQEk8xJeJNbzW4fNLdmiFuOa6jzb_hNExcOoc2dEBaFolQLvdiaB5K227vJwZFWWCtQPm1S5Nb0t553BNqY0lJwDD-Y-K0KVceT96Kg7gTuvfr9bjiHK1RHKHEHvUPpnUX-CYbBaxHYk_9tNq0V1r4JL6N6q2W1FgZE8bvz8Hf9bY4eFdIHlvfDDA8osudziJN8gXClfN7aFB9DZwlpiCsy3pGrSJ_Ww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/movies",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e6ff3b18-bb97-4dba-8d49-25a7f8486902",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmYyNGVkNDZjNDBlN2Y5MTI3ZGUiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2NDIyLCJleHAiOjE1ODE2Njg0MjIsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.BqNb8_UuaYuLArI2FQcY7kbJpUBb48jIs9acIPfcPxUi6YD71a1vM56C4WdRGd62ZtXr-lqcidp6j2a1NaTtz5fV76njIkZ6bvfM_XaxVkZbWip1l1x7lJBQEk8xJeJNbzW4fNLdmiFuOa6jzb_hNExcOoc2dEBaFolQLvdiaB5K227vJwZFWWCtQPm1S5Nb0t553BNqY0lJwDD-Y-K0KVceT96Kg7gTuvfr9bjiHK1RHKHEHvUPpnUX-CYbBaxHYk_9tNq0V1r4JL6N6q2W1FgZE8bvz8Hf9bY4eFdIHlvfDDA8osudziJN8gXClfN7aFB9DZwlpiCsy3pGrSJ_Ww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/actors",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e6ff3b18-bb97-4dba-8d49-25a7f8486902",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmYyNGVkNDZjNDBlN2Y5MTI3ZGUiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2NDIyLCJleHAiOjE1ODE2Njg0MjIsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.BqNb8_UuaYuLArI2FQcY7kbJpUBb48jIs9acIPfcPxUi6YD71a1vM56C4WdRGd62ZtXr-lqcidp6j2a1NaTtz5fV76njIkZ6bvfM_XaxVkZbWip1l1x7lJBQEk8xJeJNbzW4fNLdmiFuOa6jzb_hNExcOoc2dEBaFolQLvdiaB5K227vJwZFWWCtQPm1S5Nb0t553BNqY0lJwDD-Y-K0KVceT96Kg7gTuvfr9bjiHK1RHKHEHvUPpnUX-CYbBaxHYk_9tNq0V1r4JL6N6q2W1FgZE8bvz8Hf9bY4eFdIHlvfDDA8osudziJN8gXClfN7aFB9DZwlpiCsy3pGrSJ_Ww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Guoqiang Tang\",\n\t\"age\": 68,\n\t\"gender\": \"male\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/actors",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e6ff3b18-bb97-4dba-8d49-25a7f8486902",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmYyNGVkNDZjNDBlN2Y5MTI3ZGUiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2NDIyLCJleHAiOjE1ODE2Njg0MjIsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.BqNb8_UuaYuLArI2FQcY7kbJpUBb48jIs9acIPfcPxUi6YD71a1vM56C4WdRGd62ZtXr-lqcidp6j2a1NaTtz5fV76njIkZ6bvfM_XaxVkZbWip1l1x7lJBQEk8xJeJNbzW4fNLdmiFuOa6jzb_hNExcOoc2dEBaFolQLvdiaB5K227vJwZFWWCtQPm1S5Nb0t553BNqY0lJwDD-Y-K0KVceT96Kg7gTuvfr9bjiHK1RHKHEHvUPpnUX-CYbBaxHYk_9tNq0V1r4JL6N6q2W1FgZE8bvz8Hf9bY4eFdIHlvfDDA8osudziJN8gXClfN7aFB9DZwlpiCsy3pGrSJ_Ww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Minority Report\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/movies",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1f984ff5-df4f-4d34-b491-cfa5a43f0d7f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmYyNGVkNDZjNDBlN2Y5MTI3ZGUiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2NDIyLCJleHAiOjE1ODE2Njg0MjIsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.BqNb8_UuaYuLArI2FQcY7kbJpUBb48jIs9acIPfcPxUi6YD71a1vM56C4WdRGd62ZtXr-lqcidp6j2a1NaTtz5fV76njIkZ6bvfM_XaxVkZbWip1l1x7lJBQEk8xJeJNbzW4fNLdmiFuOa6jzb_hNExcOoc2dEBaFolQLvdiaB5K227vJwZFWWCtQPm1S5Nb0t553BNqY0lJwDD-Y-K0KVceT96Kg7gTuvfr9bjiHK1RHKHEHvUPpnUX-CYbBaxHYk_9tNq0V1r4JL6N6q2W1FgZE8bvz8Hf9bY4eFdIHlvfDDA8osudziJN8gXClfN7aFB9DZwlpiCsy3pGrSJ_Ww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Jianbin Chen\",\n\t\"age\": 50,\n\t\"gender\": \"male\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/actors/2",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"actors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1f984ff5-df4f-4d34-b491-cfa5a43f0d7f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVRkVRVU0zT1VJeFF6ZzBRVGN4TnprMk9UTTBRa1JGTXpJNE9FWTRRemN4TmtSQk5rSXdNQSJ9.eyJpc3MiOiJodHRwczovL3hpYWR3LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTQ0YmYyNGVkNDZjNDBlN2Y5MTI3ZGUiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTgxNTk2NDIyLCJleHAiOjE1ODE2Njg0MjIsImF6cCI6IkNvTExhSmdOT3ZMdWxtclZqWm03dGRKUXNpTEFaSUoyIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.BqNb8_UuaYuLArI2FQcY7kbJpUBb48jIs9acIPfcPxUi6YD71a1vM56C4WdRGd62ZtXr-lqcidp6j2a1NaTtz5fV76njIkZ6bvfM_XaxVkZbWip1l1x7lJBQEk8xJeJNbzW4fNLdmiFuOa6jzb_hNExcOoc2dEBaFolQLvdiaB5K227vJwZFWWCtQPm1S5Nb0t553BNqY0lJwDD-Y-K0KVceT96Kg7gTuvfr9bjiHK1RHKHEHvUPpnUX-CYbBaxHYk_9tNq0V1r4JL6N6q2W1FgZE8bvz8Hf9bY4eFdIHlvfDDA8osudziJN8gXClfN7aFB9DZwlpiCsy3pGrSJ_Ww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"The Shawshank Redemption\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/movies/2",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
