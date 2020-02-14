@@ -14,9 +14,10 @@ def create_app(test_config=None):
     @requires_auth('post:movies')
     def post_movies(payload):
         data = request.json
-        date = data['release_date']
-        release_date = datetime(date['year'], date['month'], date['day'])
+
         try:
+            date = data['release_date']
+            release_date = datetime(date['year'], date['month'], date['day'])
             movie = Movie(title=data['title'], release_date=release_date)
             movie.insert()
             return jsonify({'success': True})
@@ -37,6 +38,19 @@ def create_app(test_config=None):
             'success': True,
             'movies': formated_movies
         })
+
+    @app.route('/movies/<int:movie_id>', methods=['GET'])
+    @requires_auth('get:movies')
+    def get_movie(payload, movie_id):
+        movie = Movie.query.filter(Movie.id == movie_id).one_or_none()
+
+        if movie:
+            return jsonify({
+                'success': True,
+                'movie': movie.format()
+             })
+        else:
+            abort(404)
 
     @app.route('/movies/<int:movie_id>', methods=['DELETE'])
     @requires_auth('delete:movies')
@@ -96,6 +110,19 @@ def create_app(test_config=None):
             'success': True,
             'actors': formated_actors
         })
+
+    @app.route('/actors/<int:actor_id>', methods=['GET'])
+    @requires_auth('get:actors')
+    def get_actor(payload, actor_id):
+        actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
+
+        if actor:
+            return jsonify({
+                'success': True,
+                'actor': actor.format()
+            })
+        else:
+            abort(404)
 
     @app.route('/actors/<int:actor_id>', methods=['DELETE'])
     @requires_auth('delete:actors')
