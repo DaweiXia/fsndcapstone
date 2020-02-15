@@ -10,6 +10,10 @@ def create_app(test_config=None):
     setup_db(app)
     migrate = Migrate(app, db)
 
+    @app.route('/')
+    def index():
+        return "Hi"
+
     @app.route('/movies', methods=['POST'])
     @requires_auth('post:movies')
     def post_movies(payload):
