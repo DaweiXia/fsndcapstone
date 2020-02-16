@@ -2,7 +2,48 @@
 
 This project is the capstone of Udacity Full Stack Web Developer Nanodegree project, which should build an online Casting Agency. The Casting Agency models a company that is responsible for creating movies and managing and assigning actors to those movies. You are an Executive Producer within the company and are creating a system to simplify and streamline your process.
 
-## Getting Started
+The Casting Agency Service is hosting on heroku, name is [casting-agency-test](https://casting-agency-test.herokuapp.com/), you can click this url to see hi. The URL is: https://casting-agency-test.herokuapp.com/.
+
+## Endpoints
+
+```bash
+GET '/'
+GET '/movies'
+GET '/movies/<int:movie_id>'
+GET '/actors'
+GET '/actors/<int:actor_id>'
+POST '/movies'
+POST '/actors'
+PATCH '/movies/<int:movie_id>'
+PATCH '/actors/<int:actor_id>'
+DELETE '/movies/<int:movie_id>'
+DELETE '/actors/<int:actor_id>'
+```
+
+## Set Up Authentication
+
+- Paste URL below to web browser and fill the replacements with parameters provided in setup.sh.
+
+```bash
+https://{{YOUR_DOMAIN}}/authorize?audience={{API_IDENTIFIER}}&response_type=token&client_id={{YOUR_CLIENT_ID}}&redirect_uri={{YOUR_CALLBACK_URI}}
+```
+
+- Sign in with accouts provided below to get token one by one
+  - Executive Producer:
+    EMAIL: xw_158520@126.com
+    PASSWORD: 126Workhard@auth0520
+  - Casting Director:
+    EMAIL: 270574377@qq.com
+    PASSWORD: qqWorkhard@auth0520
+  - Casting Assistant:
+    EMAIL: br_jsj@163.com
+    PASSWORD: brWorkhard@auth0520
+
+- Open postman and import collectoins 'CastingAgency.postman_collection.json'
+
+- Use tokens get from step 2 to run test cases one-by-one and you'd better run test cases of Executive Producer first
+
+## Getting Started Locally
 
 ### Installing Dependencies
 
