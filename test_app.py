@@ -1,3 +1,4 @@
+# This test can only test endpoints without RBAC
 import os
 import unittest
 import json
