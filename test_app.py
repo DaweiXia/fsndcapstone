@@ -15,8 +15,7 @@ class CastingAgencyTestCase(unittest.TestCase):
         """Define test variables and initialize app."""
         self.app = create_app()
         self.client = self.app.test_client
-        self.dbpath = os.environ['DATABASE_URL']
-        setup_db(self.app, self.dbpath)
+        setup_db(self.app)
 
         # binds the app to the current context
         with self.app.app_context():
