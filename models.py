@@ -1,11 +1,9 @@
+import os
+
 from sqlalchemy import Column, String, Integer, DateTime
 from flask_sqlalchemy import SQLAlchemy
 
-dbname = "casting_agency_test"
-host = 'localhost:5432'
-uname = 'postgres'
-upwd = 'postgres'
-database_path = "postgresql://{}:{}@{}/{}".format(uname, upwd, host, dbname)
+database_path = os.environ['DATABASE_URL']
 db = SQLAlchemy()
 
 
