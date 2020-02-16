@@ -1,6 +1,3 @@
-# This file has been abandoned after add auth code,
-#  because all endpoints need RBAC
-
 import os
 import unittest
 import json
@@ -18,7 +15,7 @@ class CastingAgencyTestCase(unittest.TestCase):
         """Define test variables and initialize app."""
         self.app = create_app()
         self.client = self.app.test_client
-        self.dbpath = "postgresql://{}:{}@{}/{}".format(uname, upwd, host, dbname)
+        self.dbpath = os.environ['DATABASE_URL']
         setup_db(self.app, self.dbpath)
 
         # binds the app to the current context
