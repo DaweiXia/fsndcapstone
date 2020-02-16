@@ -29,15 +29,9 @@ https://{{YOUR_DOMAIN}}/authorize?audience={{API_IDENTIFIER}}&response_type=toke
 ```
 
 - Sign in with accouts provided below to get token one by one
-  - Executive Producer:
-    EMAIL: xw_158520@126.com
-    PASSWORD: 126Workhard@auth0520
-  - Casting Director:
-    EMAIL: 270574377@qq.com
-    PASSWORD: qqWorkhard@auth0520
-  - Casting Assistant:
-    EMAIL: br_jsj@163.com
-    PASSWORD: brWorkhard@auth0520
+  - Executive Producer: Because the project has been checked, the account has been deleted
+  - Casting Director: Because the project has been checked, the account has been deleted
+  - Casting Assistant: Because the project has been checked, the account has been deleted
 
 - Open postman and import collectoins 'CastingAgency.postman_collection.json'
 
